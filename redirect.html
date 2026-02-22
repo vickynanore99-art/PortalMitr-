@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting... - PortalMitr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .link-display-box {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px solid #333;
+            text-align: left;
+        }
+        #link-url {
+            color: #38bdf8;
+            font-size: 0.85rem;
+            word-break: break-all;
+            white-space: normal;
+            font-family: monospace;
+            display: block;
+        }
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .btn-full {
+            grid-column: span 2;
+            background: #2563eb;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .btn-half {
+            background: #334155;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="back-nav" onclick="history.back()"><i class="fas fa-arrow-left"></i> Back</div>
+        <h1 id="page-title">Loading...</h1>
+    </header>
+
+    <div class="container">
+        <p style="text-align: center; color: #94a3b8; margin-top: 20px;">Official Details/Link:</p>
+        
+        <div class="link-display-box">
+            <span id="link-url">Fetching link...</span>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-full" id="open-link-btn"><i class="fas fa-external-link-alt"></i> OPEN OFFICIAL SITE</button>
+            <button class="btn-half" onclick="copyLink()"><i class="fas fa-copy"></i> Copy Link</button>
+            <button class="btn-half" onclick="shareContent()"><i class="fas fa-share-alt"></i> Share Link</button>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get('type');
+        const linkElem = document.getElementById('link-url');
+        const titleElem = document.getElementById('page-title');
+        const btnMain = document.getElementById('open-link-btn');
+        let finalUrl = "";
+
+        const portalData = {
+            // 1. SPPU Section
+            'result': { title: "SPPU Online Result", url: "https://onlineresults.unipune.ac.in/Result/Dashboard/Default" },
+            'timetable': { title: "Exam Time Table", url: "http://collegecirculars.unipune.ac.in/sites/examdocs/default.aspx" },
+            
+            // 2. Admission (15 Colleges)
+            'fergusson': { title: "Fergusson Admission", url: "https://www.fergusson.edu/admission/" },
+            'symbiosis': { title: "Symbiosis Admission", url: "https://www.symbiosiscollege.edu.in/admissions" },
+            'bmcc': { title: "BMCC Admission", url: "https://www.bmcc.ac.in/admission-process/" },
+            'modern_s': { title: "Modern (Shivajinagar)", url: "https://moderncollegepune.edu.in/admissions/" },
+            'modern_g': { title: "Modern (Ganeshkhind)", url: "https://mcka.digitaledu.in/" },
+            'sp_coll': { title: "S.P. College Admission", url: "https://www.spcollegepune.ac.in/admissions" },
+            'ness_wadia': { title: "Ness Wadia Admission", url: "https://nesswadiacollege.edu.in/" },
+            'coep': { title: "COEP Tech University", url: "https://www.coep.org.in/admissions" },
+            'vit': { title: "VIT Pune Admission", url: "https://www.vit.edu/index.php/admissions" },
+            'pict': { title: "PICT Pune Admission", url: "https://pict.edu/admission/" },
+            'mit_wpu': { title: "MIT-WPU Admission", url: "https://admissions.mitwpu.edu.in/" },
+            'dyp_pimpri': { title: "DY Patil (Pimpri)", url: "https://dypatil.edu/admissions" },
+            'dyp_akurdi': { title: "DY Patil (Akurdi)", url: "https://www.dypiu.ac.in/apply-now" },
+            'st_miras': { title: "St. Mira's Admission", url: "https://stmirascollegepune.edu.in/" },
+            'sndt': { title: "SNDT University", url: "https://sndt.ac.in/admissions" },
+
+            // 3. Board Results
+            'maha_board': { title: "Maharashtra Board Result", url: "https://mahresult.nic.in/" },
+            'cbse_board': { title: "CBSE Board Result", url: "https://results.cbse.nic.in/" },
+            'icse_board': { title: "ICSE / ISC Result", url: "https://results.cisce.org/" },
+            'nios_board': { title: "NIOS Board Result", url: "https://results.nios.ac.in/" },
+
+            // 4. Identity Docs
+            'aadhaar': { title: "Aadhaar (UIDAI)", url: "https://myaadhaar.uidai.gov.in/" },
+            'pancard': { title: "PAN Card Services", url: "https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" },
+            'voterid': { title: "Voter Service Portal", url: "https://voters.eci.gov.in/" },
+            'passport': { title: "Passport Seva", url: "https://www.passportindia.gov.in/" },
+
+            // 5. Govt Schemes
+            'ladki_bahin': { title: "Ladki Bahin Yojna", url: "https://ladakibahin.maharashtra.gov.in/" },
+            'aaple_sarkar': { title: "Aaple Sarkar Portal", url: "https://aaplesarkar.mahaonline.gov.in/" },
+            'mahadbt': { title: "MahaDBT (Scholarship)", url: "https://mahadbt.maharashtra.gov.in/" },
+            'mahaswayam': { title: "Mahaswayam (Jobs)", url: "https://www.mahaswayam.gov.in/" },
+
+            // 6. Transport & Services
+            'learning_dl': { title: "Learning License", url: "https://sarathi.parivahan.gov.in/" },
+            'permanent_dl': { title: "Permanent DL Services", url: "https://sarathi.parivahan.gov.in/" },
+            'rc_transfer': { title: "RC Transfer Online", url: "https://vahan.parivahan.gov.in/" },
+            'trademark_search': { title: "Trademark Search", url: "https://ipindiaservices.gov.in/tmrpublicsearch/frmmain.aspx" },
+            'shop_act': { title: "Shop Act License", url: "https://lms.mahaonline.gov.in/" },
+            'udyam': { title: "Udyam Registration", url: "https://udyamregistration.gov.in/" },
+
+            // 7. Jobs & Careers
+            'sarkari_result': { title: "Sarkari Result", url: "https://www.sarkariresult.com/" },
+            'mpsc': { title: "MPSC Official", url: "https://mpsc.gov.in/" },
+            'police_bharti': { title: "Maha Police Bharti", url: "https://policerecruitment2024.mahait.org/" },
+            'agniveer': { title: "Join Indian Army", url: "https://joinindianarmy.nic.in/" },
+            'rrb': { title: "Railway Recruitment", url: "https://www.rrbcdg.gov.in/" },
+            'ssc_jobs': { title: "SSC Portal", url: "https://ssc.gov.in/" },
+            'cet_cell': { title: "MAHA CET CELL", url: "https://cetcell.mahacet.org/" },
+            'jee_neet_jobs': { title: "NTA Exams", url: "https://exams.nta.ac.in/" },
+            'ibps': { title: "IBPS Banking", url: "https://www.ibps.in/" },
+
+            // 8. Banking (A/C & Balance)
+            'bnk_sbi': { title: "SBI Account Opening", url: "https://www.sbi.co.in/" },
+            'bnk_kotak': { title: "Kotak 811 Online", url: "https://www.kotak.com/en/personal-banking/811.html" },
+            'bnk_hdfc': { title: "HDFC Digital A/C", url: "https://www.hdfcbank.com/" },
+            'bnk_icici': { title: "ICICI Insta Save", url: "https://www.icicibank.com/" },
+            'bnk_axis': { title: "Axis Digital A/C", url: "https://www.axisbank.com/" },
+            'bnk_au': { title: "AU Small Finance", url: "https://www.aubank.in/" },
+            'bal_sbi': { title: "SBI Balance Check", url: "tel:09223766666", isCall: true },
+            'bal_hdfc': { title: "HDFC Balance Check", url: "tel:18002703333", isCall: true },
+            'bal_icici': { title: "ICICI Balance Check", url: "tel:9594612612", isCall: true },
+            'bal_axis': { title: "Axis Balance Check", url: "tel:18004195959", isCall: true },
+            'sip_calc': { title: "SIP Calculator", url: "https://www.angelone.in/calculators/sip-calculator" },
+            'cibil': { title: "Free CIBIL Score", url: "https://www.cibil.com/freecibilscore" },
+
+            // 9. Digital Tools
+            'pdf_merge': { title: "Merge PDF Online", url: "https://www.ilovepdf.com/merge_pdf" },
+            'img_to_pdf': { title: "Image to PDF", url: "https://www.ilovepdf.com/jpg_to_pdf" },
+            'compress_img': { title: "Photo Resizer", url: "https://www.reduceimages.com/" },
+            'bg_remover': { title: "Background Remover", url: "https://www.remove.bg/" },
+            'qr_gen': { title: "QR Code Generator", url: "https://www.qr-code-generator.com/" },
+
+            // 10. Entrance Exams
+            'jee_main': { title: "JEE Main (NTA)", url: "https://jeemain.nta.nic.in/" },
+            'mht_cet': { title: "MHT-CET (Engg/Agri)", url: "https://cetcell.mahacet.org/" },
+            'neet_ug': { title: "NEET UG (Medical)", url: "https://exams.nta.ac.in/NEET/" },
+            'mba_cet': { title: "MAH-MBA-CET", url: "https://mba2024.mahacet.org/" },
+            'law_cet': { title: "MAH-LLB-CET", url: "https://llb3.mahacet.org/" },
+
+            // 11. Cyber Security
+            'cyber_report': { title: "Report Cyber Crime", url: "https://www.cybercrime.gov.in/" },
+            'link_checker': { title: "VirusTotal Link Scan", url: "https://www.virustotal.com/" },
+            'data_breach': { title: "Check Data Breach", url: "https://haveibeenpwned.com/" }
+        };
+
+        if (type && portalData[type]) {
+            const data = portalData[type];
+            finalUrl = data.url;
+            titleElem.innerText = data.title;
+            linkElem.innerText = data.isCall ? data.url.replace("tel:", "") : data.url;
+
+            if (data.isCall) {
+                btnMain.innerHTML = '<i class="fas fa-phone-alt"></i> CALL NOW';
+                btnMain.style.background = "#22c55e";
+            }
+        } else {
+            titleElem.innerText = "Error";
+            linkElem.innerText = "Link details not found.";
+        }
+
+        btnMain.onclick = function() {
+            if (finalUrl) {
+                window.open(finalUrl, portalData[type]?.isCall ? '_self' : '_blank');
+            }
+        };
+
+        function copyLink() {
+            navigator.clipboard.writeText(linkElem.innerText);
+            alert("Details Copied!");
+        }
+
+        function shareContent() {
+            if (navigator.share) {
+                navigator.share({ title: 'PortalMitr', url: finalUrl });
+            }
+        }
+    </script>
+</body>
+</html>
+
+<div class="redirect-disclaimer">
+    <p><i class="fas fa-info-circle"></i> <strong>Note:</strong> Aap ab ek external official website par ja rahe hain. PortalMitr kisi bhi tarah ke transaction ya data security ki zimmedari nahi leta. Kripya official site ke niyam dhyan se padhein.</p>
+</div>
+

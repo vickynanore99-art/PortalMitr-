@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Tools - PortalMitr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="back-nav" onclick="location.href='index.html'"><i class="fas fa-arrow-left"></i> Home</div>
+        <h1>Digital<span>Tools</span></h1>
+    </header>
+
+    <div class="container">
+        <div class="action-card" onclick="location.href='redirect.html?type=pdf_merge'">
+            <div class="icon-circle red"><i class="fas fa-file-pdf"></i></div>
+            <h2>Merge PDF</h2>
+            <p>Combine multiple files</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=img_to_pdf'">
+            <div class="icon-circle blue"><i class="fas fa-images"></i></div>
+            <h2>Image to PDF</h2>
+            <p>Convert photos to PDF</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=compress_img'">
+            <div class="icon-circle green"><i class="fas fa-compress-arrows-alt"></i></div>
+            <h2>Photo Resizer</h2>
+            <p>Reduce KB for Forms</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=bg_remover'">
+            <div class="icon-circle purple"><i class="fas fa-user-slash"></i></div>
+            <h2>BG Remover</h2>
+            <p>Remove photo background</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=qr_gen'">
+            <div class="icon-circle darkblue"><i class="fas fa-qrcode"></i></div>
+            <h2>QR Generator</h2>
+            <p>Create custom QR codes</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+</html>

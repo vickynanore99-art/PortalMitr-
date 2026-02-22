@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Results - PortalMitr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="back-nav" onclick="location.href='index.html'"><i class="fas fa-arrow-left"></i> Home</div>
+        <h1>Board<span>Results</span></h1>
+    </header>
+
+    <div class="container">
+        <div class="action-card" onclick="location.href='redirect.html?type=maha_board'">
+            <div class="icon-circle red"><i class="fas fa-file-signature"></i></div>
+            <h2>Maharashtra Board</h2>
+            <p>SSC & HSC Official Result</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=cbse_board'">
+            <div class="icon-circle blue"><i class="fas fa-university"></i></div>
+            <h2>CBSE Board</h2>
+            <p>10th & 12th Results</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=icse_board'">
+            <div class="icon-circle orange"><i class="fas fa-graduation-cap"></i></div>
+            <h2>ICSE / ISC Board</h2>
+            <p>Class 10th & 12th</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=nios_board'">
+            <div class="icon-circle green"><i class="fas fa-book-reader"></i></div>
+            <h2>NIOS Board</h2>
+            <p>Open Schooling Results</p>
+        </div>
+    </div>
+<script src="script.js"></script>
+
+</body>
+</html>

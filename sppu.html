@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPPU Portal - PortalMitr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="back-nav" onclick="history.back()"><i class="fas fa-arrow-left"></i> Back</div>
+        <h1>SPPU<span>Portal</span></h1>
+    </header>
+
+    <div class="container">
+        <div class="action-card" onclick="location.href='redirect.html?type=timetable'">
+            <div class="icon-circle orange"><i class="fas fa-calendar-alt"></i></div>
+            <h2>Exam Time Table</h2>
+            <p>Click here to check latest schedules</p>
+        </div>
+
+        <div class="action-card" onclick="location.href='redirect.html?type=result'">
+            <div class="icon-circle green"><i class="fas fa-poll-h"></i></div>
+            <h2>SPPU Result</h2>
+            <p>Check your semester marksheet</p>
+        </div>
+    </div>
+<script src="script.js"></script>
+
+</body>
+</html>
