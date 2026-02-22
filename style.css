@@ -1,0 +1,502 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 30px 15px;
+    text-align: center;
+    background-color: #0f172a; /* Dark theme background */
+}
+
+.brand-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-text h1 {
+    font-size: 38px; /* Bada aur clear font */
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -1px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.brand-text h1 span {
+    color: #3b82f6; /* Mitr ka blue color jo screenshot mein tha */
+}
+
+.brand-text p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 5px 0 0 0;
+    letter-spacing: 3px; /* Professional spacing */
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+body {
+    background-color: #0b0f19;
+    color: white;
+    padding: 15px;
+}
+
+/* Header & Logo */
+/* Logo Container */
+.logo-container {
+    display: flex;
+    flex-direction: column; /* Mobile par upar niche dikhega */
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Logo Icon Design */
+.portal-logo {
+    position: relative;
+    background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+    margin-bottom: 10px;
+}
+
+/* Logo ke upar ek chota chamakta dot */
+.logo-dot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    background: #4ade80; /* Green dot for online/active */
+    border-radius: 50%;
+    border: 2px solid #0b0f19;
+}
+
+/* Text Styling */
+.brand-text h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.brand-text h1 span {
+    color: #38bdf8; /* 'Mitr' word highlight hoga */
+}
+
+.brand-text p {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin: 2px 0 0;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.portal-logo {
+    position: relative;
+    background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+    width: 65px;
+    height: 65px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 10px 25px rgba(29, 78, 216, 0.4);
+    margin-bottom: 12px;
+}
+
+.logo-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 12px;
+    height: 12px;
+    background: #4ade80;
+    border-radius: 50%;
+    border: 2px solid #0b0f19;
+}
+
+.brand-text h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.brand-text h1 span {
+    color: #38bdf8;
+}
+
+.brand-text p {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.portal-logo {
+    width: 55px;  /* Mobile ke liye sahi size */
+    height: 55px;
+    border-radius: 10px; /* Thoda curved corners */
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Logo ko thoda utha hua dikhane ke liye */
+}
+
+/* Header text ko thoda adjust karne ke liye */
+.brand-text h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.brand-text p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Search Bar */
+.search-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#searchInput {
+    width: 80%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    background: #1e293b;
+    color: white;
+    outline: none;
+}
+
+.search-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Card Design */
+.card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 20px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.card:active {
+    transform: scale(0.96);
+    background: #1c2128;
+}
+
+.icon-box {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 12px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+/* Card Colors */
+.blue { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.orange { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+.green { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+.purple { background: rgba(192, 132, 252, 0.15); color: #c084fc; }
+.red { background: rgba(248, 113, 113, 0.15); color: #f87171; }
+.yellow { background: rgba(250, 204, 21, 0.15); color: #facc15; }
+.cyan { background: rgba(34, 211, 238, 0.15); color: #22d3ee; }
+.teal { background: rgba(45, 212, 191, 0.15); color: #2dd4bf; }
+.pink { background: rgba(244, 114, 182, 0.15); color: #f472b6; }
+.indigo { background: rgba(129, 140, 248, 0.15); color: #818cf8; }
+.darkred { background: rgba(153, 27, 27, 0.15); color: #ef4444; }
+.grey { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+
+.card h3 { font-size: 1rem; margin-bottom: 6px; color: #f1f5f9; }
+.card p { font-size: 0.75rem; color: #8b949e; line-height: 1.3; }
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 40px 20px 20px;
+    background: #0d1117;
+    border-top: 1px solid #30363d;
+    text-align: center;
+}
+
+.footer-content {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 { color: #38bdf8; margin-bottom: 12px; }
+.footer-section p { font-size: 0.85rem; color: #8b949e; }
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 8px; }
+.footer-section ul li a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; }
+
+.footer-bottom {
+    font-size: 0.75rem;
+    color: #484f58;
+    border-top: 1px solid #21262d;
+    padding-top: 20px;
+}
+
+/* Tablet & Desktop Layout */
+@media (min-width: 768px) {
+    .grid-container { grid-template-columns: repeat(4, 1fr); }
+    .footer-content { grid-template-columns: repeat(2, 1fr); text-align: left; }
+}
+footer {
+    background: #0d1117;
+    border-top: 2px solid #1e293b;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-section h4 {
+    color: #38bdf8;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-section h4 span { color: white; }
+
+.footer-section p {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #38bdf8;
+    font-size: 1.4rem;
+    transition: 0.3s;
+}
+
+/* Disclaimer Box Styling */
+.disclaimer-box {
+    background: rgba(245, 158, 11, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px dashed rgba(245, 158, 11, 0.3);
+}
+
+.disclaimer-box p {
+    color: #d1d5db;
+    font-size: 0.75rem !important;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    font-size: 0.75rem;
+}
+/* SPPU & Redirect Specific CSS */
+.container { padding: 20px; max-width: 500px; margin: 0 auto; }
+
+.action-card {
+    background: #161b22;
+    border: 2px solid #30363d;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.icon-circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 15px; font-size: 1.5rem;
+}
+
+.link-display-box {
+    background: #0d1117;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: #38bdf8;
+    border: 1px solid #1e293b;
+}
+
+.copy-btn { background: none; border: none; color: white; cursor: pointer; }
+
+.big-open-btn {
+    width: 100%;
+    padding: 18px;
+    background: #38bdf8;
+    color: #0b0f19;
+    border: none;
+    border-radius: 15px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.share-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #94a3b8;
+    color: white;
+    border-radius: 15px;
+}
+.disclaimer-container {
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.disclaimer-box {
+    background: #1e293b; /* Dark card color */
+    border-left: 4px solid #f59e0b; /* Orange warning border */
+    padding: 20px;
+    border-radius: 12px;
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.disclaimer-box h3 {
+    color: #f59e0b;
+    margin-top: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.secondary-text {
+    margin-top: 10px;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.disclaimer-box hr {
+    border: 0;
+    border-top: 1px solid #334155;
+    margin: 15px 0;
+}
+
+.copyright {
+    text-align: center;
+    font-weight: bold;
+    color: #2563eb;
+    margin-bottom: 0;
+}
+.redirect-disclaimer {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05); /* Bahut halka background */
+    border-radius: 8px;
+    border: 1px dashed #475569; /* Dashed border professional lagta hai */
+}
+
+.redirect-disclaimer p {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.redirect-disclaimer i {
+    color: #3b82f6; /* Blue icon color */
+    margin-right: 5px;
+    font-size: 14px;
+}
+.brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 10px;
+}
+
+.logo-wrapper {
+    width: 65px;
+    height: 65px;
+    border-radius: 12px;
+    overflow: hidden; /* Corners ko round karne ke liye */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: #fff; /* Agar PNG transparent nahi hai toh safety ke liye */
+}
+
+#portalLogo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Image ko box mein perfectly fit karega */
+}
+.brand-container {
+    display: flex;
+    flex-direction: column; /* Screenshot jaisa vertical look */
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+    background: #0f172a; /* Dark background */
+}
